@@ -59,7 +59,7 @@
             cut = opts.maxSlices || 100,
             minPercent = (parseFloat(opts.minPercent) !== undefined) ? parseFloat(opts.minPercent) : 1,
             defcut = Boolean( minPercent ),
-            customColor = (opts.colors !== undefined) ? opts.colors[0] : chartinst.colors[0];
+            customColor = opts.colors && opts.colors[0] || chartinst.colors[0];
 
         function sector(cx, cy, r, startAngle, endAngle, fill) {
             if (opts.insideRadius && opts.insideRadius > 0) {
@@ -161,6 +161,7 @@
                     }
                     p = paper.path(opts.init ? ipath : path).attr({ fill: opts.colors && opts.colors[i] || chartinst.colors[i] || "#666", opacity: opts.opacity && opts.opacity[i], stroke: opts.stroke || "#fff", "stroke-width": strokewidth, "stroke-linejoin": "round" });
                 } else {
+                    customColor = opts.colors && opts.colors[i] || chartinst.colors[i];
                     p = paper.circle(cx, cy, r).attr({ fill: customColor, opacity: opts.opacity && opts.opacity[i], stroke: opts.stroke || "#fff", "stroke-width": opts.strokewidth == null ? 1 : opts.strokewidth })
                 }
 
