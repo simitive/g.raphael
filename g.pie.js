@@ -62,7 +62,8 @@
             customColor = opts.colors && opts.colors[0] || chartinst.colors[0];
 
         function sector(cx, cy, r, startAngle, endAngle, fill) {
-            if (opts.insideRadius && opts.insideRadius > 0) {
+            // [MF] (12/09/13) Fixed 0,0 co-ordinate bug for doughnut pies with a value of zero.
+            if (opts.insideRadius && opts.insideRadius > 0 && (startAngle !== endAngle)) {
                 var ir = opts.insideRadius;
                 var rad = Math.PI / 180,
                     ox1 = cx + r * Math.cos(-startAngle * rad),
