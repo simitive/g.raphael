@@ -1,0 +1,19 @@
+{
+  "name": "graphael-simitive",
+  "version": "0.0.1",
+  "main": "g.raphael.js",
+  "ignore": [
+    "eve",
+    "**/.*",
+    "*.html",
+    "*.json",
+    "*.markdown",
+    "*.md",
+    "copy.js",
+    "Gruntfile.js",
+    "raphael.core.js",
+    "raphael.svg.js",
+    "raphael.vml.js",
+    "reference.js"
+  ]
+}
