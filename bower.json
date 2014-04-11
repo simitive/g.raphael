@@ -1,6 +1,6 @@
 {
   "name": "graphael-simitive",
-  "version": "0.0.1",
+  "version": "0.5.1",
   "main": "g.raphael.js",
   "ignore": [
     "eve",
