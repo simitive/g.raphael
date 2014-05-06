@@ -106,7 +106,12 @@
         chart.covers = covers;
 
         if (len == 1) {
-            series.push(paper.circle(cx, cy, r).attr({ fill: customColor, stroke: opts.stroke || "#fff", "stroke-width": opts.strokewidth == null ? 1 : opts.strokewidth }));
+            if (opts.insideRadius && opts.insideRadius > 0) {
+                sw = r - opts.insideRadius;
+                series.push(paper.circle(cx, cy, r - sw / 2).attr({ fill: 'transparent', stroke: customColor, "stroke-width": sw }));
+            } else {
+                series.push(paper.circle(cx, cy, r).attr({ fill: customColor, stroke: opts.stroke || "#fff", "stroke-width": opts.strokewidth == null ? 1 : opts.strokewidth }));
+            }
             covers.push(paper.circle(cx, cy, r).attr(chartinst.shim));
             total = values[0];
             values[0] = { value: values[0], order: 0, valueOf: function () { return this.value; } };
